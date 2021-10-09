@@ -33,9 +33,18 @@
 			<Add option="-Wall" />
 			<Add directory="..\..\source" />
 		</Compiler>
+		<Unit filename="testMemoryPool.cpp" />
 		<Unit filename="tmp_test.cpp" />
+		<Unit filename="tmp_test.h" />
+		<Unit filename="..\..\source\memory\cgdlMemoryAllocator.h" />
+		<Unit filename="..\..\source\memory\cgdlStandardMemoryAllocationPolicy.h" />
+		<Unit filename="..\..\source\shared\cgdlCStringUtils.cpp" />
+		<Unit filename="..\..\source\shared\cgdlCStringUtils.h" />
 		<Unit filename="..\..\source\shared\cgdlCompiler.h" />
 		<Unit filename="..\..\source\shared\cgdlIntegers.h" />
+		<Unit filename="..\..\source\shared\cgdlMathUtils.h" />
+		<Unit filename="..\..\source\test\cgdlTestDummy.cpp" />
+		<Unit filename="..\..\source\test\cgdlTestDummy.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
