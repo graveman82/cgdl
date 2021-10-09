@@ -30,3 +30,16 @@
 *.exe
 *.out
 *.app
+
+# codeblocks
+*.depend
+*.layout
+
+# tmp
+tmp_test.cpp
+
+
+#folders
+bin/
+lib/
+obj/
