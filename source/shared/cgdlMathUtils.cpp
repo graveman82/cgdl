@@ -24,48 +24,27 @@
     SOFTWARE.
 
 //-----------------------------------------------------------------------------
-Purpose: simple fast math utils.
+Purpose: Math utils impementation depended on C standard math.h.
 Changes (date, description):
-    2021-10-09  creation from scratch
+    2021-10-10  creation from scratch
 //-----------------------------------------------------------------------------
 
 */
-#ifndef CGDL_SHARED_MATHUTILS_H_INCLUDED
-#define CGDL_SHARED_MATHUTILS_H_INCLUDED
+
+#include <math.h>
+#include "shared/cgdlMathUtils.h"
+
 namespace cgdl {
 
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Max(T x, T y) { return x >= y ? x : y; }
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Min(T x, T y) { return x <= y ? x : y; }
-
-//-----------------------------------------------------------------------------
-template <typename RT, typename T1, typename T2>
-RT Max(T1 x, T2 y) { return x >= y ? (RT)x : (RT)y; }
-
-//-----------------------------------------------------------------------------
-template <typename RT, typename T1, typename T2>
-RT Min(T1 x, T2 y) { return x <= y ? (RT)x : (RT)y; }
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Abs(T x) { return x < 0 ? -x : x; }
-
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Sqrt(T x);
+template <>
+float Sqrt(float x)
+{
+    return static_cast<float>(sqrt(x));
+}
 
 template <>
-float Sqrt(float x);
-
-template <>
-double Sqrt(double x);
-
+double Sqrt(double x)
+{
+    return sqrt(x);
+}
 } // end of cgdl
-
-#endif // CGDL_SHARED_MATHUTILS_H_INCLUDED

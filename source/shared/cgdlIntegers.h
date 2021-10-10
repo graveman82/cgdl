@@ -89,7 +89,9 @@ typedef int8_t IndexS8;
 typedef int16_t IndexS16;
 typedef int32_t IndexS32;
 
-
+typedef IndexS8 DataS8;
+typedef IndexS16 DataS16;
+typedef IndexS32 DataS32;
 
 } // end of cgdl
 
