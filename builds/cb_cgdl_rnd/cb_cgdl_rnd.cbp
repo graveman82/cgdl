@@ -14,6 +14,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-DCGDL_CSTDIOFILE_DEBUG_CHECK_AUTOCLOSING" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -37,6 +38,8 @@
 		<Unit filename="tmp_test.h" />
 		<Unit filename="..\..\source\debug\cgdlLog.cpp" />
 		<Unit filename="..\..\source\debug\cgdlLog.h" />
+		<Unit filename="..\..\source\file_io\cgdlCStdioFile.cpp" />
+		<Unit filename="..\..\source\file_io\cgdlCStdioFile.h" />
 		<Unit filename="..\..\source\memory\cgdlMemoryAllocator.h" />
 		<Unit filename="..\..\source\memory\cgdlSharedPtr.cpp" />
 		<Unit filename="..\..\source\memory\cgdlSharedPtr.h" />
