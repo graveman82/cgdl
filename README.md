@@ -1,3 +1,4 @@
+<img align="left" src="doc/images/logo.png" width="128px"/>
 # cgdl
 Common Game Development Library
 
