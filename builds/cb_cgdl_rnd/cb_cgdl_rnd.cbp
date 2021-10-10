@@ -35,6 +35,8 @@
 		</Compiler>
 		<Unit filename="tmp_test.cpp" />
 		<Unit filename="tmp_test.h" />
+		<Unit filename="..\..\source\debug\cgdlLog.cpp" />
+		<Unit filename="..\..\source\debug\cgdlLog.h" />
 		<Unit filename="..\..\source\memory\cgdlMemoryAllocator.h" />
 		<Unit filename="..\..\source\memory\cgdlSharedPtr.cpp" />
 		<Unit filename="..\..\source\memory\cgdlSharedPtr.h" />
