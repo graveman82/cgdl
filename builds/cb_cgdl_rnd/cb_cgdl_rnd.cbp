@@ -34,6 +34,9 @@
 			<Add option="-Wall" />
 			<Add directory="..\..\source" />
 		</Compiler>
+		<Linker>
+			<Add library="kernel32" />
+		</Linker>
 		<Unit filename="tmp_test.cpp" />
 		<Unit filename="tmp_test.h" />
 		<Unit filename="..\..\source\debug\cgdlLog.cpp" />
@@ -53,6 +56,8 @@
 		<Unit filename="..\..\source\shared\cgdlMathUtils.h" />
 		<Unit filename="..\..\source\test\cgdlTestDummy.cpp" />
 		<Unit filename="..\..\source\test\cgdlTestDummy.h" />
+		<Unit filename="..\..\source\timer\cgdlExactTimer.cpp" />
+		<Unit filename="..\..\source\timer\cgdlExactTimer.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

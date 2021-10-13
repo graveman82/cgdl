@@ -24,56 +24,38 @@
     SOFTWARE.
 
 //-----------------------------------------------------------------------------
-Purpose: simple fast math utils.
+Purpose: Exact timer definition.
 Changes (date, description):
-    2021-10-09  creation from scratch
+    2021-10-13  creation from scratch
 //-----------------------------------------------------------------------------
 
 */
-#ifndef CGDL_SHARED_MATHUTILS_H_INCLUDED
-#define CGDL_SHARED_MATHUTILS_H_INCLUDED
+#ifndef CGDL_TIMER_EXACTTIMER_H_INCLUDED
+#define CGDL_TIMER_EXACTTIMER_H_INCLUDED
+
+#include "shared/cgdlIntegers.h"
+
 namespace cgdl {
 
 
 //-----------------------------------------------------------------------------
-template <typename T>
-T Max(T x, T y) { return x >= y ? x : y; }
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Min(T x, T y) { return x <= y ? x : y; }
-
-//-----------------------------------------------------------------------------
-template <typename RT, typename T1, typename T2>
-RT Max(T1 x, T2 y) { return x >= y ? (RT)x : (RT)y; }
-
-//-----------------------------------------------------------------------------
-template <typename RT, typename T1, typename T2>
-RT Min(T1 x, T2 y) { return x <= y ? (RT)x : (RT)y; }
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Abs(T x) { return x < 0 ? -x : x; }
-
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Sqrt(T x);
-
-template <>
-float Sqrt(float x);
-
-template <>
-double Sqrt(double x);
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T PowOf2(T n)
+class ExactTimer
 {
-    T p = 1;
-    while(n--) p *= 2;
-    return p;
-}
+public:
+    ExactTimer();
+    bool Initialize();
+    double UpdateTimeElapsed();
+    double TimeElapsed() const { return timeElapsed_; }
+    void Sleep(CountU32 ms);
+
+private:
+    void EvaluateTickResolution();
+
+    SizeU64 tickStart_;
+    double timeElapsed_;
+    double tickDuration_; // in seconds
+};
+
 
 } // end of cgdl
-#endif // CGDL_SHARED_MATHUTILS_H_INCLUDED
+#endif // CGDL_TIMER_EXACTTIMER_H_INCLUDED

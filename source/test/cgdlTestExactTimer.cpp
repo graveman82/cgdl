@@ -24,56 +24,53 @@
     SOFTWARE.
 
 //-----------------------------------------------------------------------------
-Purpose: simple fast math utils.
+Purpose: Testing exact timer.
 Changes (date, description):
-    2021-10-09  creation from scratch
+    2021-10-13  creation from scratch
 //-----------------------------------------------------------------------------
 
 */
-#ifndef CGDL_SHARED_MATHUTILS_H_INCLUDED
-#define CGDL_SHARED_MATHUTILS_H_INCLUDED
+
+#include <stdio.h>
+#include <conio.h>
+#include <iostream>
+#include <string>
+#include "timer/cgdlExactTimer.h"
+
 namespace cgdl {
 
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Max(T x, T y) { return x >= y ? x : y; }
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Min(T x, T y) { return x <= y ? x : y; }
-
-//-----------------------------------------------------------------------------
-template <typename RT, typename T1, typename T2>
-RT Max(T1 x, T2 y) { return x >= y ? (RT)x : (RT)y; }
-
-//-----------------------------------------------------------------------------
-template <typename RT, typename T1, typename T2>
-RT Min(T1 x, T2 y) { return x <= y ? (RT)x : (RT)y; }
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Abs(T x) { return x < 0 ? -x : x; }
-
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T Sqrt(T x);
-
-template <>
-float Sqrt(float x);
-
-template <>
-double Sqrt(double x);
-
-//-----------------------------------------------------------------------------
-template <typename T>
-T PowOf2(T n)
+void Test()
 {
-    T p = 1;
-    while(n--) p *= 2;
-    return p;
-}
+    ExactTimer timer;
+    timer.Initialize();
+    std::string s;
+    /* Set timer on your smartphone to one minute, type "start" and press Enter (at keyboard) and
+    play button (in smartphone timer app) simultaneously.
+    */
+    while (s != "start")
+    {
+        std::cin >> s;
+        timer.Sleep(100);
+    }
+    double t0 = timer.UpdateTimeElapsed();
 
+    /* Type "stop" and press Enter (at keyboard) when time is over in smartphone timer app.
+    */
+    while (s != "stop")
+    {
+        std::cin >> s;
+    }
+
+    double t1 = timer.UpdateTimeElapsed();
+    printf("elapsed %g seconds\n", t1 - t0);
+}
 } // end of cgdl
-#endif // CGDL_SHARED_MATHUTILS_H_INCLUDED
+
+int main(int argc, char** argv)
+{
+    cgdl::Test();
+    // quit trigger
+    printf("Press any key to quit...");
+    getch();
+    return 0;
+}
